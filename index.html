@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600&display=swap" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
+</head>
+
+<body>
+    <!-- <audio autoplay="autopaly">
+      <source src="renxi.mp3" type="audio/mp3" />
+    </audio> -->
+    <!-- 星空html -->
+    <!-- <div> -->
+    <div class="container2">
+        <div class="content">
+            <canvas id="universe"></canvas>
+        </div>
+    </div>
+    <!-- </div> -->
+    <div class="title">
+        <!-- EDIT HERE -->
+        <h3 class="STARDUST1">2022</h3>
+        <h1 class="STARDUST2">MT &amp; BN</h1>
+        <h3 class="STARDUST3">LOVE <strong>❤</strong> YOU</h3>
+        <!-- <img class="img" src="EDIT_ME.png" alt="JUNO_OKYO" /> -->
+
+        <div id="shape" class="cube backfaces" style="top: 330px;">
+            <div class="plane one"></div>
+            <div class="plane two"></div>
+            <div class="plane three"></div>
+            <div class="plane four"></div>
+            <div class="plane five"></div>
+            <div class="plane six"></div>
+            <div class="plane seven"></div>
+            <div class="plane eight"></div>
+            <div class="plane nine"></div>
+            <div class="plane ten"></div>
+            <div class="plane eleven"></div>
+            <div class="plane twelve"></div>
+        </div>
+
+        <canvas style="top: -100px;" id="pinkboard"></canvas>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/particle.js"></script>
+    <script src="js/universe.js"></script>
+
+    <script type="text/javascript" charset="utf-8">
+        function hasClassName(inElement, inClassName) {
+            var regExp = new RegExp('(?:^|\\s+)' + inClassName + '(?:\\s+|$)');
+            return regExp.test(inElement.className);
+        }
+
+        function addClassName(inElement, inClassName) {
+            if (!hasClassName(inElement, inClassName))
+                inElement.className = [inElement.className, inClassName].join(' ');
+        }
+
+        function removeClassName(inElement, inClassName) {
+            if (hasClassName(inElement, inClassName)) {
+                var regExp = new RegExp('(?:^|\\s+)' + inClassName + '(?:\\s+|$)', 'g');
+                var curClasses = inElement.className;
+                inElement.className = curClasses.replace(regExp, ' ');
+            }
+        }
+
+        function toggleClassName(inElement, inClassName) {
+            if (hasClassName(inElement, inClassName))
+                removeClassName(inElement, inClassName);
+            else
+                addClassName(inElement, inClassName);
+        }
+
+        function toggleShape() {
+            var shape = document.getElementById('shape');
+            if (hasClassName(shape, 'ring')) {
+                removeClassName(shape, 'ring');
+                addClassName(shape, 'cube');
+            } else {
+                removeClassName(shape, 'cube');
+                addClassName(shape, 'ring');
+            }
+
+            var stage = document.getElementById('stage');
+            if (hasClassName(shape, 'ring'))
+                stage.style.webkitTransform = 'translateZ(-200px)';
+            else
+                stage.style.webkitTransform = '';
+        }
+    </script>
+</body>
+
+</html>
